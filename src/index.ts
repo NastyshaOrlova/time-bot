@@ -8,15 +8,24 @@ const bot = new Telegraf(process.env.BOT_TOKEN!);
 
 // Форматируем дату в "Понедельник 02.12"
 function formatDay(date: Date): string {
-  const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  const days = [
+    "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+  ];
   const day = days[date.getDay()];
-  const dd = String(date.getDate()).padStart(2, '0');
-  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
   return `${day} ${dd}.${mm}`;
 }
 
 bot.command("start", (ctx) => {
   ctx.reply(formatDay(new Date()));
+  ctx.reply("✨Твои мысли и заметки о самом важном:");
 });
 
 bot.command("week", async (ctx) => {
