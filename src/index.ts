@@ -25,7 +25,7 @@ function formatDay(date: Date): string {
 
 bot.command("start", (ctx) => {
   ctx.reply(formatDay(new Date()));
-  ctx.reply("✨Твои мысли и заметки о самом важном:");
+  ctx.reply("✨Твои мысли и заметки о важном:");
 });
 
 bot.command("week", async (ctx) => {
